@@ -236,7 +236,7 @@ class ParkingLot {
                         //calculate the total amount of parking fee the vehicle consumed.
                         // small parking slot cause a 20/hour rate.
                         // and every exceeding 24 hours the vehicles is charge for 5000 PHP.
-                        let total_charge = 0;
+                        let total_charge = this.sizes[i].charge
                         let time_out = new Date().getHours()
                         let time_difference = Math.ceil(Math.abs(parseInt(this.sizes[i].time_in.getHours()) - parseInt(time_out)))
                         while(time_difference > 24) {
@@ -249,14 +249,14 @@ class ParkingLot {
                         this.sizes[i].occupied = false;
                         this.sizes[i].vehicle = null;
                         this.sizes[i].time_in = null;
-                        return `Total Parking Charge is: ${total_charge} PHP`
+                        return `Total Parking Charge is: ${total_charge} PHP for vehicle ${vehicle.plate_number}`
                     }
                     //checks if the vehicle size is in a medium parking slot.
                     else if (this.sizes[i].slot_size === MEDIUM_SLOT) {
                         //calculate the total amount of parking fee the vehicle consumed.
                         // medium parking slot cause a 60/hour rate.
                         // and every exceeding 24 hours the vehicles are charged for 5000 PHP.
-                        let total_charge = 0;
+                        let total_charge = this.sizes[i].charge;
                         let time_out = new Date().getHours()
                         let time_difference = Math.ceil(Math.abs(parseInt(this.sizes[i].time_in.getHours()) - parseInt(time_out)))
                         while(time_difference > 24) {
@@ -269,14 +269,14 @@ class ParkingLot {
                         this.sizes[i].occupied = false;
                         this.sizes[i].vehicle = null;
                         this.sizes[i].time_in = null;
-                        return `Total Parking Charge is: ${total_charge} PHP`
+                        return `Total Parking Charge is: ${total_charge} PHP for vehicle ${vehicle.plate_number}`
                     }
                     //checks if the vehicle size is in a medium parking slot.
                     else if (this.sizes[i].slot_size === LARGE_SLOT) {
                         // calculate the total amount of parking fee the vehicle consumed.
                         // large parking slot cause a 60/hour rate.
                         // and every exceeding 24 hours the vehicles are charged for 5000 PHP.
-                        let total_charge = 0;
+                        let total_charge = this.sizes[i].charge;
                         let time_out = new Date().getHours()
                         let time_difference = Math.ceil(Math.abs(parseInt(this.sizes[i].time_in.getHours()) - parseInt(time_out)))
                         while(time_difference > 24) {
@@ -290,7 +290,7 @@ class ParkingLot {
                         this.sizes[i].occupied = false;
                         this.sizes[i].vehicle = null;
                         this.sizes[i].time_in = null;
-                        return `Total Parking Charge is: ${total_charge} PHP`
+                        return `Total Parking Charge is: ${total_charge} PHP for vehicle ${vehicle.plate_number}`
                     }
                 }
             }

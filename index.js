@@ -70,7 +70,8 @@ const parkingLot = new ParkingLot([
 
 
 console.log(parkingLot.park_vehicle(mycar1))
-console.log(parkingLot.park_vehicle(mycar4))
-console.log(parkingLot.park_vehicle(mycar2))
-console.log(parkingLot.park_vehicle(mycar3))
-console.log(parkingLot.unpack_vehicle(mycar1))
+console.log('Available Parking Slot: ', parkingLot.check_parking_slot())
+setTimeout(() => {
+    console.log(parkingLot.unpack_vehicle(mycar1))
+    console.log('Available Parking Slot: ', parkingLot.check_parking_slot())
+}, 5000)
